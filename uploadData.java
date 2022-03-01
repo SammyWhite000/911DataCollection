@@ -7,59 +7,24 @@
  *   a file 
 */
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 class uploadData{
-    public static void main(String[] args){
-      System.out.println("It is working");
+   private static void countFileEntries(String argv){
       try{
-         //First start reading the data file and create a temp file
-         BufferedReader reader = new BufferedReader(new FileReader("data.txt"));
-
-         File tempFile = File.createTempFile("tempFile", null);
-         String loc = tempFile.getAbsolutePath();
-         //System.out.println(loc);
-
-         //Start writing to the temp file
-         BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
-         //Start writing to the file
-         //Check if we have looped through once
-         int flag = 0;
-         String lineByLine;
-         //Loop through file
-         while((lineByLine = reader.readLine()) != null){
-            if(flag == 0){
-               flag = 1;
-               int increase = Integer.parseInt(lineByLine) + 1;
-               writer.write(String.valueOf(increase));
-               writer.write("\n");
-            }
-            else{
-               writer.write(lineByLine);      
-               writer.write("\n");
-            }
-         }
-         reader.close();
+         BufferedWriter writer = new BufferedWriter(new FileWriter("inputData.txt", true));
+         writer.append(argv + "\n");
          writer.close();
-
-         //Clear all the contents of data
-         /*
-         PrintWriter clearData = new PrintWriter("data.txt");
-         clearData.print("");
-         clearData.close();
-         */
-
-         //Once I write to temp file, close and open buffer writer and reader
-         //Reader of temp file
-         //Writer of data.txt
-         BufferedReader tempReader = new BufferedReader(new FileReader("output.txt"));
-         BufferedWriter dataWriter = new BufferedWriter(new FileWriter("data.txt"));
-         while((lineByLine = tempReader.readLine()) != null){
-            dataWriter.write("data.txt");
-            dataWriter.write("\n");
-         }
-         tempReader.close();
-         dataWriter.close();
       }catch(IOException e){
          e.printStackTrace();
       }
+   }
+    public static void main(String[] argv){
+      System.out.println("Starting Process");
+      DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+      LocalDateTime currentTime = LocalDateTime.now();
+      String time = dtf.format(currentTime);
+      System.out.println("Added: " + time);
+      countFileEntries(time);
     }
 }
