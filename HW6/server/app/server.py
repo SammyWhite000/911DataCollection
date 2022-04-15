@@ -1,21 +1,14 @@
 # Import of python system libraries.
 # These libraries will be used to create the web server.
 # You don't have to install anything special, these libraries are installed with Python.
-from flask import Flask
-from flask import request
-import sys
+import http.server
+import socketserver
+
 # This variable is going to handle the requests of our client on the server.
-app = Flask(__name__)
+handler = http.server.SimpleHTTPRequestHandler
 
-# Description = printing thing
-# Get methods 
-
-@app.route('/', methods=['GET'])
-# "Printing" Statement
-def hello_world():
-    description = request.data
-    print("Client Name is ", description, flush=True)
-    return description
-
-# Start Server
-app.run(host='0.0.0.0', port=5000)
+# Here we define that we want to start the server on port 1234. 
+# Try to remember this information it will be very useful to us later with docker-compose.
+with socketserver.TCPServer(("", 5000), handler) as httpd:
+    # This instruction will keep the server running, waiting for requests from the client.
+    httpd.serve_forever()
