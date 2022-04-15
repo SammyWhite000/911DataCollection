@@ -7,4 +7,7 @@ import sys
 import requests
 # Get the parameter
 name = sys.argv[1]
-r = requests.put('http://localhost:5000/',data=name)
+#print required text
+print("my name is ", name, flush=True)
+data = {'name', name}
+responce = requests.post("http://0.0.0.0:5000", data)
