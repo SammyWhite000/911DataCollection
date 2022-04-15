@@ -1,11 +1,13 @@
 1. What is a docker container?
  >A docker container is a executable package of software that includeds everything 
- >you  need to run an application. It's made possily by virtualization
+ >you  need to run an application. It's made possily by virtualization. They are instances created from
+ > docker images
 
 2. What is the difference between a container and a virtual machine?
  > The difference between a container and a virtual machine is a container is a stand
  > alone executable. A virtual machine is bigger since it contains a whole operating
- > system, it can also contain more than one. 
+ > system, it can also contain more than one. In a VM the the hardware is virtualized but containers
+ > don't do that.  
 
 3. What is the purpose of a Dockerfile?
  > A docker file is like a makeFile. It contains all of the commands on how to assemble
@@ -15,7 +17,8 @@
  > The purpose of the requirements.txt file is it holds the name of the 
  > libraries that the user might need to install. To automate the process, this file
  > holds the names and during building, pip installs those libraries so the user 
- > has everything they need.
+ > has everything they need. In our case we are using pip to install come of the required
+ > libraries
 
 5. What is the purpose of a docker-compose.yml file?
  > The docker-compose file provides a way to document and configure all of the apps

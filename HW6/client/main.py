@@ -5,9 +5,12 @@
 # You don't have to install anything special, this library is installed with Python.
 import sys
 import requests
+import json
 # Get the parameter
 name = sys.argv[1]
 #print required text
-print("my name is ", name, flush=True)
-data = {'name', name}
-responce = requests.post("http://0.0.0.0:5000", data)
+#print whose name it is
+print("my name is", name, flush=True)
+#save it in a set
+data = {'name': name}
+responce = requests.post("http://0.0.0.0:5000", json=data)

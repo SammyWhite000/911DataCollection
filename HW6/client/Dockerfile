@@ -7,6 +7,7 @@ ADD main.py /client/
 # Use requirements.txt
 COPY requirements.txt requirements.txt
 # Use pip to install it
+RUN pip install --no-cache-dir --upgrade pip
 RUN pip install -r requirements.txt
 # I would like to introduce something new, the 'WORKDIR' command.
 # This command changes the base directory of your image.

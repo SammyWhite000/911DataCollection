@@ -39,7 +39,7 @@ services:
 
   # Second service (container): the client.
   # We use the keyword 'client' for the server.
-  client:
+  client1:
     build: client/
 
     command: python ./main.py Bob
@@ -47,3 +47,21 @@ services:
 
     depends_on:
       - server
+    
+  client2:
+      build: client/
+
+      command: python ./main.py Fuck 
+      network_mode: host
+
+      depends_on:
+        - server 
+
+  client3:
+      build: client/
+
+      command: python ./main.py Me 
+      network_mode: host
+
+      depends_on:
+        - server   
