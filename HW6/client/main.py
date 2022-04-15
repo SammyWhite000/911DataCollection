@@ -13,4 +13,5 @@ name = sys.argv[1]
 print("my name is", name, flush=True)
 #save it in a set
 data = {'name': name}
+# post request to give the name to the server
 responce = requests.post("http://0.0.0.0:5000", json=data)

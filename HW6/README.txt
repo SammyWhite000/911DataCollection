@@ -1,3 +1,17 @@
+Samuel White
+
+client:
+ > main.py
+    > take the arguments which are the client names and uses requests.post
+    > to give the names to the server
+
+server:
+ > server.py
+    > Server starts on port 5000 and listens for a post
+    > When post is recieved it stores the name in a variable and 
+    > print the name of the client 
+
+
 1. What is a docker container?
  >A docker container is a executable package of software that includeds everything 
  >you  need to run an application. It's made possily by virtualization. They are instances created from
@@ -22,7 +36,7 @@
 
 5. What is the purpose of a docker-compose.yml file?
  > The docker-compose file provides a way to document and configure all of the apps
- > services and dependencies.
+ > services and dependencies with a single command.
 
 6. What is the difference between a docker image and docker container?
  > Images describe the applications and how they should be run.
@@ -34,10 +48,10 @@
  > docker-compose build.
 
 8. What command will start a docker container?
- > docker run will start a docker container.
+ > docker run <arg> will start a docker container.
 
 9. What command will stop a docker container?
- > docker rm will stop a running container. ctrl + c also stops a container.
+ > docker stop <arg> will stop a running container. ctrl + c also stops a container.
 
 10. What command will remove a docker container? Image?
  > To remove a docker container use the "docker container rm <id>" command
@@ -48,7 +62,7 @@
  > To list all containers add a --all to the end of the previous command
 
 12. What command will list all docker images?
- > use the command "docker images"
+ > use the command "docker images ls"
  > This command defaults to listing only running images
 
 13. What command do you use to deploy docker containers using information in the dockercompose.yml file?
