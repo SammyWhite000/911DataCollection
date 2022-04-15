@@ -9,9 +9,15 @@ FROM python:latest
 # Just a remember, the first parameter 'server.py' is the name of the file on the host.
 # The second parameter '/server/' is the path where to put the file on the image.
 # Here we put files at the image '/server/' folder.
-ADD server.py /server/
+ADD /app/server.py /server/
 ADD index.html /server/
+# Port 5000
+EXPOSE 5000
 
+# Use requirements.txt
+COPY requirements.txt requirements.txt
+# Use pip to install it
+RUN pip install -r requirements.txt
 # I would like to introduce something new, the 'WORKDIR' command.
 # This command changes the base directory of your image.
 # Here we define '/server/' as base directory (where all commands will be executed).
